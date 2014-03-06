@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+
+  "name": "CSS3D",
+  "description": "This extension allows the use of Leap Motion controller to scroll page and browse forward/backward.",
+  "version": "1.0",
+
+  "permissions": [
+    "tabs"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": [
+        "jquery.min.js" , 
+        "stats.min.js" , 
+        "leap.min.js",
+        "tween.min.js",
+        "three.min.js" ,
+        "CSS3DRenderer.js",
+        "leapTrackball.js" , 
+        "TrackballControls.js" , 
+        //"leapscroll.js",
+        "parseDivs.js"
+      ],
+      "all_frames": true
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}

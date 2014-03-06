@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "WebGL",
+  "description": "This extension allows the use of Leap Motion controller to scroll page and browse forward/backward.",
+  "version": "1.0",
+
+  "permissions": [
+    "tabs"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": [
+        "jquery.min.js" , 
+        "stats.min.js" , 
+        "leap.min.js",
+        "tween.min.js" ,
+        "three.min.js" ,
+        "Math.js",
+        "LeapTrackballControls.js" ,
+        "TrackballControls.js" , 
+        "linkTree.js",
+        "interface.js",
+        "init.js"
+      ],
+      "all_frames": true
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "icon.png"
+  }
+
+}
