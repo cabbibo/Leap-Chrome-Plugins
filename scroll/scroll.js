@@ -34,8 +34,9 @@
 
   var params = {
 
-    forceRatio:10000,
-    matchRatio: .8,
+    forceRatio: .01,
+    matchPower: 3,
+    matchCutoff: .7,
 
     pinchCutoff: .5, 
     pinchMovementRatio: .1,
@@ -52,11 +53,38 @@
 
   var controller;
 
-  controller = new Leap.Controller({ enableGestures: true });
-  controller.connect();
+  var gui;
 
+
+
+
+  init();
   animate();
 
+  function init(){
+
+    controller = new Leap.Controller({ enableGestures: true });
+    controller.connect();
+
+    gui = new dat.GUI();
+
+    // Setting up gui
+    gui.add( params , 'forceRatio' );
+    gui.add( params , 'matchPower' );
+    gui.add( params , 'matchCutoff' );
+    gui.add( params , 'pinchCutoff' );
+    gui.add( params , 'pinchMovementRatio' );
+    gui.add( params , 'dampening' );
+
+    gui.domElement.style.zIndex   = '9999';
+    gui.domElement.style.position = 'fixed';
+    gui.domElement.style.bottom   = '100px';
+    gui.domElement.style.right    = '0px';
+    
+    console.log( gui );
+
+
+  }
 
   function animate(){
     
@@ -92,7 +120,7 @@
   
     // Updating of 
     position += velocity;
-    velocity *= dampening;
+    velocity *= params.dampening;
 
     /*
       Bounding the scrolling to the top and bottom of
@@ -166,9 +194,15 @@
 
           var match = fingerDirection.dot( handDirection );
 
-          var force = fingerVelocity.y * match;
+          // Cuts off our matching if the direction isn't in alignment
+          if( match > params.matchCutoff ){
+            
+            var matchPower = Math.pow( match , params.matchPower );
+            var force = fingerVelocity.y * matchPower;
 
-          totalForce += force / 10000;
+            totalForce += force * params.forceRatio;
+
+          }
 
 
         }
