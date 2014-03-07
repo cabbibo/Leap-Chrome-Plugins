@@ -9,6 +9,9 @@ Currently 3 plugins getting worked on:
 In order to get a plugin working do the following:
 
 - Go to the settings tab of the drop down ( upper right )
+
+![Settings](http://imgur.com/4CXRX13)
+
 - Click on the extensions tab ( upper left )
 - Enable Developer mode ( upper right )
 - Click Load upacked extension ( upper right )
