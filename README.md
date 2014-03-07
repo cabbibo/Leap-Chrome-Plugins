@@ -15,7 +15,7 @@ In order to get a plugin working do the following:
 - Click on the extensions tab ( upper left )
 - Enable Developer mode ( upper right )
 - Click Load upacked extension ( upper right )
-- Load the desired folder
-- Make sure that any time you make a change you reload!
+- Load the folder of your choice from the root of the repository.
+- Make sure that any time you make a change to the extension you reload on the extensions page!
 
 icohen@leapmotion.com for more questions.
