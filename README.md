@@ -10,7 +10,7 @@ In order to get a plugin working do the following:
 
 - Go to the settings tab of the drop down ( upper right )
 
-![Settings](http://imgur.com/4CXRX13)
+![Settings](http://i.imgur.com/4CXRX13.png)
 
 - Click on the extensions tab ( upper left )
 - Enable Developer mode ( upper right )
